@@ -14,16 +14,140 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          admin_notes: string | null
+          age: number
+          applied_at: string | null
+          approved_by: string | null
+          first_name: string
+          gender: Database["public"]["Enums"]["gender_type"]
+          id: string
+          last_name: string
+          phone_number: string
+          status: Database["public"]["Enums"]["application_status"] | null
+          updated_at: string | null
+          user_id: string
+          vehicle_type: Database["public"]["Enums"]["vehicle_type"]
+          working_hours: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          age: number
+          applied_at?: string | null
+          approved_by?: string | null
+          first_name: string
+          gender: Database["public"]["Enums"]["gender_type"]
+          id?: string
+          last_name: string
+          phone_number: string
+          status?: Database["public"]["Enums"]["application_status"] | null
+          updated_at?: string | null
+          user_id: string
+          vehicle_type: Database["public"]["Enums"]["vehicle_type"]
+          working_hours: string
+        }
+        Update: {
+          admin_notes?: string | null
+          age?: number
+          applied_at?: string | null
+          approved_by?: string | null
+          first_name?: string
+          gender?: Database["public"]["Enums"]["gender_type"]
+          id?: string
+          last_name?: string
+          phone_number?: string
+          status?: Database["public"]["Enums"]["application_status"] | null
+          updated_at?: string | null
+          user_id?: string
+          vehicle_type?: Database["public"]["Enums"]["vehicle_type"]
+          working_hours?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_approved_by_fkey"
+            columns: ["approved_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "applications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_roles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _user_id: string
+          _role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "applicant"
+      application_status: "pending" | "approved" | "rejected"
+      gender_type: "male" | "female" | "other" | "prefer_not_to_say"
+      vehicle_type: "bicycle" | "motorcycle" | "car" | "scooter" | "e-bike"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +274,11 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "applicant"],
+      application_status: ["pending", "approved", "rejected"],
+      gender_type: ["male", "female", "other", "prefer_not_to_say"],
+      vehicle_type: ["bicycle", "motorcycle", "car", "scooter", "e-bike"],
+    },
   },
 } as const
