@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/Header';
-import { Truck, Loader } from 'lucide-react';
+import { ShoppingBag, Loader } from 'lucide-react';
 
 export const Auth = () => {
   const { t } = useLanguage();
@@ -90,10 +90,13 @@ export const Auth = () => {
         <div className="max-w-md mx-auto">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Truck className="h-10 w-10 text-primary" />
+              <div className="relative">
+                <ShoppingBag className="h-10 w-10 text-primary" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-primary rounded-full animate-pulse"></div>
+              </div>
               <div className="flex flex-col">
-                <h1 className="text-2xl font-bold text-primary">{t('tre.delivery')}</h1>
-                <p className="text-sm text-muted-foreground">{t('wolt.fleet.partner')}</p>
+                <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">{t('tre.delivery')}</h1>
+                <p className="text-sm text-muted-foreground font-medium">{t('wolt.fleet.partner')}</p>
               </div>
             </div>
             <p className="text-muted-foreground">

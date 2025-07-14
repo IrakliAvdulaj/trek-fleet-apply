@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Truck, Clock, Shield, Users, MapPin, Zap } from "lucide-react";
+import { ShoppingBag, Clock, Shield, Users, MapPin, Zap, Utensils } from "lucide-react";
 
 const Index = () => {
   const { language } = useLanguage();
@@ -46,7 +46,7 @@ const Index = () => {
             description: "Deliver across all major areas in the city"
           },
           {
-            icon: Truck,
+            icon: Utensils,
             title: "Any Vehicle",
             description: "Bike, scooter, car - use what works for you"
           }
@@ -89,7 +89,7 @@ const Index = () => {
             description: "Dorëzo në të gjitha zonat kryesore të qytetit"
           },
           {
-            icon: Truck,
+            icon: Utensils,
             title: "Çdo Automjet",
             description: "Biçikletë, skuter, makinë - përdor çfarë të funksionojë për ty"
           }
