@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# TRE Delivery - Courier Application Platform
 
-## Project info
+A modern web application for courier applications and fleet management, built as a partner platform for Wolt delivery services.
 
-**URL**: https://lovable.dev/projects/a1f1e519-b82e-4798-990c-9fe27ef61149
+## Project Overview
 
-## How can I edit this code?
+TRE Delivery is a comprehensive courier application platform that allows potential delivery partners to apply for courier positions and enables administrators to manage applications efficiently.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Multi-language Support**: Available in English and Albanian
+- **User Authentication**: Secure sign-up and login system
+- **Application Management**: Complete courier application workflow
+- **Admin Dashboard**: Administrative interface for managing applications
+- **Real-time Updates**: Live status updates for applications
+- **Responsive Design**: Mobile-first design approach
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a1f1e519-b82e-4798-990c-9fe27ef61149) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI primitives with shadcn/ui
+- **Backend**: Supabase (PostgreSQL database, authentication, real-time)
+- **Build Tool**: Vite
+- **Deployment**: Ready for modern hosting platforms
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js 18+ and npm
+- Supabase account and project
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd trek-fleet-apply
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Set up environment variables:
+Create a `.env.local` file with your Supabase credentials:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/          # Reusable UI components
+├── contexts/           # React contexts (Auth, Language)
+├── hooks/              # Custom React hooks
+├── integrations/       # External service integrations
+├── lib/                # Utility functions
+├── pages/              # Application pages/routes
+└── styles/             # Global styles and design system
+```
 
-**Use GitHub Codespaces**
+## Database Schema
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The application uses Supabase with the following main tables:
+- `profiles`: User profile information
+- `applications`: Courier applications
+- `user_roles`: User role management
 
-## What technologies are used for this project?
+## Contributing
 
-This project is built with:
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a1f1e519-b82e-4798-990c-9fe27ef61149) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is proprietary software owned by TRE Delivery.
