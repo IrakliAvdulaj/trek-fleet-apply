@@ -191,7 +191,7 @@ const translations = {
   }
 };
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+export const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
